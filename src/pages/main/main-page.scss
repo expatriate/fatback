@@ -1,0 +1,32 @@
+.main-page {
+    background-color: $COLOR_DARK_BG;
+    color: $COLOR_WHITE;
+
+    width: 100%;
+    height: 100%;
+
+    &__content {
+        background-color: $COLOR_DARK_BG;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: 40% auto;
+        grid-template-rows: max-content auto;
+        grid-template-areas: 
+            "res-list player player"
+            "timeline timeline timeline";
+        grid-gap: .325rem;
+
+        &.loading {
+            pointer-events: none;
+            opacity: 0.4
+        }
+    }
+
+    h1 {
+        margin: 0;
+        padding: 2rem .725rem;
+        text-align: center;
+    }
+}
