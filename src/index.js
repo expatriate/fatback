@@ -1,20 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import store, { history } from './store';
 
-import App from './App';
-import StateLoader from './storeLoader';
+import { store } from './helpers/store';
+import { App } from './App';
 
-import './index.scss';
+// setup fake backend
+import { configureFakeBackend } from './helpers/fake-backend';
+configureFakeBackend();
 
-const target = document.querySelector('#root');
-const stateLoader = new StateLoader();
-
-store.subscribe(() => {
-    stateLoader.saveState(store.getState());
-});
+const target = document.querySelector('#root')
 
 render(
     <Provider store={store}>
